@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    private static int lives = 3;
+    public static int lives = 2;
     private void OnTriggerEnter(Collider other) {
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
         if (playerHealth == null) {return;}
 
-        if (lives < 1){
+        if (lives < 2){
             playerHealth.Crash();
-            lives = 3;
+            lives = 2;
+            
         } else {
-            lives--;
+            --lives;
         }
     }
 
     private void OnBecameInvisible() {
         Destroy(gameObject);
+    }
+
+    public int DisplayLives(){
+        return lives;
     }
 }
