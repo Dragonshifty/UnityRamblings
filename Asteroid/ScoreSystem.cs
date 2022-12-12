@@ -19,6 +19,10 @@ public class ScoreSystem : MonoBehaviour
         livesText.text = $"Lives: {Asteroid.lives.ToString()}";
     }
 
+    public void StartTimer(){
+        isScoring = true;
+    }
+
     public int PauseScore(){
         isScoring = false;
 
